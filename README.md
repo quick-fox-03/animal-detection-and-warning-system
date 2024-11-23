@@ -32,7 +32,6 @@ For the application of this project, we are using a publicly available MQTT Brok
 
 # Circuit Diagram
 <img src="https://github.com/quick-fox-03/animal-detection-and-warning-system/blob/main/soundplay%20circuit.jpg?raw=true" height="500px" width="700px" alt="image of circuit with esp32 controller leds and speakers">
-[Simulation Link](https://wokwi.com/projects/415272090827317249)
 Pin connections:
 
 | Component  | ESP32 Pin |
@@ -41,6 +40,8 @@ Pin connections:
 | LED Bulb  | GPIO 23  |
 | OLED (SDA)  | GPIO 21  |
 | OLED (SCL)  | GPIO 22  |
+
+[Simulation Link](https://wokwi.com/projects/415272090827317249)
 
 # System Workflow
 1. The ESP32 connects to a Wi-Fi network.
