@@ -11,12 +11,15 @@ MQTT (Message Queuing Telemetry Transport) is a lightweight IoT communication pr
 For the application of this project, we are using a publicly available MQTT Broker, by Eclipse Mosquitto. The MQTT Broker is available at "test.mosquitto.org" and port 1883 allows for free communication. Ports can be configured for encryption and authentication as per the need, or a locally hosted MQTT Broker can also be used.
 
 # IoT Alert System
+
+
+
 The device consists of three components: 
 - a flashing LED that can be installed roadside for alerting both animals and drivers.
 - an ultrasonic sound emitter that emits noise for disturbing animals while drivers stay unaffected.
 - an OLED Display Board that can be used for signalling drivers about areas prone to animal presence, or a certain animal's detection.
 
-The device is simulated at Wokwi platform for prototyping purposes.
+The device is simulated at [Wokwi](https://wokwi.com/) platform for prototyping purposes. You may see the circuit over at [the Wokwi platform.](https://wokwi.com/projects/415272090827317249)
 
 ## ESP32 Board
 The ESP32 Board is a popular WiFi and Bluetooth-enabled microcontroller, which serves as the main controlling unit of this device. It controls activation/deactivation for all actuators used and is also responsible for subscribing as a client to the MQTT Broker.
