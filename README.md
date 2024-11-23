@@ -63,6 +63,14 @@ Pin connections:
 | `"off"`  | Deactivates the LED and buzzer. Clears the OLED screen. |
 
 # Setup instructions
+1. Hardware setup: Connect the components as per the circuit diagram.
+2. Wi-Fi configuration: Replace `WIFI_SSID` and `WIFI_PASSWORD` in the code with your Wi-Fi credentials. Wokwi's platform simulates a Wi-Fi network, for using it add the following credentials:
+   - `WIFI_SSID` : "Wokwi-GUEST"
+   - `WIFI_PASSWORD`: ""
+3. MQTT Broker: Use a public MQTT broker [Mosquitto](test.mosquitto.org) or configure your private broker.
+4. Upload Code: Use a suitable IDE (such as Arduino IDE) to upload the code to the ESP32.
+5.  
+
 
 # IoT Alert System
 
@@ -74,23 +82,3 @@ The device consists of four components:
 - a flashing LED that can be installed roadside for alerting both animals and drivers.
 - an ultrasonic sound emitter that emits noise for disturbing animals while drivers stay unaffected.
 - an OLED Display Board that can be used for signalling drivers about areas prone to animal presence, or a certain animal's detection.
-
-The device is simulated at [Wokwi](https://wokwi.com/) platform for prototyping purposes. 
-
-## ESP32 Board
-The ESP32 Board is a popular WiFi and Bluetooth-enabled microcontroller, which serves as the main controlling unit of this device. It controls activation/deactivation for all actuators used and is also responsible for subscribing as a client to the MQTT Broker.
-
-## LED Unit
-The LED bulb is used as an actuator to provide flashing lights in order to confuse and deter animals while alerting drivers of potential animal in their vicinity.
-
-## Sound Emitter Unit
-The Sound Emitter Unit, is responsible for producing ultrasonic sounds at 30-40 kHz, well above the hearing range of human drivers but audible to dogs and cows, which ensures minimal disturbance to drivers and alerts to animals.
-
-## OLED Display Unit
-The OLED display unit is used as a visual actuator, which can be installed across the highways to display messages to drivers, ensuring there are more than one signals and reducing chances of missing alerts. The OLED display unit is interfaced with the microcontroller using "ssd1306" library which provides functions for controlling the display.
-
-# IoT Device circuit explanation
-The 
-
-The LED Bulb is connected to the ESP32 Board 
-
