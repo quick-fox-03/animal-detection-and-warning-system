@@ -1,13 +1,7 @@
 # animal-detection-and-warning-system
 This is a simple IoT-based system animal detection and warning system using an ESP32, a buzzer, an LED, and an OLED display. It leverages the MQTT protocol to communicate with a remote MQTT broker, receiving commands to alert drivers of animal detection events.
-# MQTT Communication protocol
-MQTT (Message Queuing Telemetry Transport) is a lightweight IoT communication protocol designed for low-powered devices and reliable communication over unreliable networks. It employs a "publish/subscribe" (pub/sub) messaging architecture, involving three main participants:
-<img src="https://camo.githubusercontent.com/0d7b840195f1be43abc6f28720224dde9b6bfa0a0a9ce73648d16a76b6154ce3/68747470733a2f2f6d7174742e6f72672f6173736574732f696d672f6d7174742d7075626c6973682d7375627363726962652e706e67" alt="MQTT demonstration image">
-- MQTT Subscriber: A device that subscribes to a specific MQTT topic to receive messages.
-- MQTT Publisher: A device that publishes messages to a specific MQTT topic to communicate with clients.
-- MQTT Broker: A server that manages communication, propagating messages between publishers and subscribers. One of MQTT's key features is its ability to queue messages in case a subscriber is offline. This ensures no data is lost and previously missed messages are available when the subscriber reconnects.
 
-For the application of this project, we are using a publicly available MQTT Broker, by Eclipse Mosquitto. The MQTT Broker is available at "test.mosquitto.org" and port 1883 allows for free communication. Ports can be configured for encryption and authentication as per the need, or a locally hosted MQTT Broker can also be used.
+For the implementation, we are using a publicly available MQTT Broker, by "Eclipse Mosquitto". The MQTT Broker is available at `"test.mosquitto.org"` and port `1883` allows for free communication. Ports can be configured for encryption and authentication as per the need, or a locally hosted MQTT Broker can also be used.
 
 # Features
 - Detects "on" and "off" commands from an MQTT broker.
@@ -45,7 +39,7 @@ Pin connections:
 
 # System Workflow
 1. The ESP32 connects to a Wi-Fi network.
-2. It subscribes to the MQTT broker at test.mosquitto.org on port 1883 and listens for messages on the topic testicals/topic.
+2. It subscribes to the MQTT broker at `"test.mosquitto.org"` on port `1883` and listens for messages on the topic testicals/topic.
 3. When a message is received:
    - If the message is "on":
      - The LED and buzzer are turned ON.
@@ -91,4 +85,7 @@ The `message_callback()` function processes incoming MQTT messages:
 
 # Live simulation of circuit
 Check out the circuit at [Wokwi here](https://wokwi.com/projects/415272090827317249)
+
+# Learn about the MQTT Communication protocol
+MQTT (Message Queuing Telemetry Transport) is a lightweight IoT communication protocol designed for low-powered devices and reliable communication over unreliable networks. It employs a "publish/subscribe" (pub/sub) messaging architecture for providing minimal overhead. [Learn more about MQTT here. ](https://mqtt.org/)
 
