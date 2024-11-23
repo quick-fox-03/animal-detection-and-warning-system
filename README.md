@@ -12,7 +12,7 @@ For the application of this project, we are using a publicly available MQTT Brok
 
 # IoT Alert System
 
-
+<img src="https://github.com/quick-fox-03/animal-detection-and-warning-system/blob/main/soundplay%20circuit.jpg?raw=true" alt="image of circuit with esp32 controller leds and speakers">
 
 The device consists of three components: 
 - a flashing LED that can be installed roadside for alerting both animals and drivers.
