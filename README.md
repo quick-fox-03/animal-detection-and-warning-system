@@ -69,16 +69,24 @@ Pin connections:
    - `WIFI_PASSWORD`: ""
 3. MQTT Broker: Use a public MQTT broker [Mosquitto](test.mosquitto.org) or configure your private broker.
 4. Upload Code: Use a suitable IDE (such as Arduino IDE) to upload the code to the ESP32.
-5.  
+5. Testing: Publish `on` or `off` messages to the topic `"save-the-stray/INDCYC"` on the broker to test the system.
 
+ # Code Explanation
+ ## Wi-Fi Connection
+ The `connect_to_wifi()` function establishes a Wi-Fi connection using the provided SSID and password.
+## MQTT Connection
+The `connect_to_mqtt()` function connects to the MQTT broker and subscribes to the topic `"save-the-stray/INDCYC"`. A unique client ID is generated based on the ESP32’s MAC address.
+## Message Handling
+The `message_callback()` function processes incoming MQTT messages:
+- If `msg == b"on"`, it activates the LED and buzzer and displays warnings on the OLED.
+- If `msg == b"off"`, it deactivates the LED and buzzer and clears the OLED.
 
-# IoT Alert System
+# Testing the system
+1. Publish Test Messages: Use an MQTT client (For e.g. Eclipse Mosquitto or a Python script) to publish messages on the topic `"save-the-stray/INDCYC"`.
+2. Observe the behaviour:
+   - For `"on"` The LED and buzzer should turn on, and the OLED should display the warning.
+   - For `"off"` The LED and buzzer should turn off, and the OLED should clear.
 
+# Live simulation of circuit
+Check out the circuit at [Wokwi here](https://wokwi.com/projects/415272090827317249)
 
-You may see the circuit over at [the Wokwi platform.](https://wokwi.com/projects/415272090827317249), which is a platform used for prototyping purposes.
-
-The device consists of four components:
-- ESP32 Microcontroller: serves as the main controlling unit of this device. It controls activation/deactivation for all actuators used and is also responsible for subscribing as a client to the MQTT Broker. 
-- a flashing LED that can be installed roadside for alerting both animals and drivers.
-- an ultrasonic sound emitter that emits noise for disturbing animals while drivers stay unaffected.
-- an OLED Display Board that can be used for signalling drivers about areas prone to animal presence, or a certain animal's detection.
