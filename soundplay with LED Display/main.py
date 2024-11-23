@@ -16,7 +16,7 @@ oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
 # MQTT Broker details
 MQTT_BROKER = "test.mosquitto.org"  # Publicly available MQTT Broker
 MQTT_PORT = 1883    # MQTT Broker port
-MQTT_TOPIC = "iot/animal-detection/428db34b8ac55c58e0f23b2a3dbd89f566fce9ccea7017ec4e8c14afaf06f0a8"    # Topic to subscribe to
+MQTT_TOPIC = "save-the-stray/INDCYC"    # Topic to subscribe to
 
 
 # Wi-Fi credentials
