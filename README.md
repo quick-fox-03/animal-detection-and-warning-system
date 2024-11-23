@@ -32,7 +32,7 @@ For the application of this project, we are using a publicly available MQTT Brok
 
 # Circuit Diagram
 <img src="https://github.com/quick-fox-03/animal-detection-and-warning-system/blob/main/soundplay%20circuit.jpg?raw=true" height="500px" width="700px" alt="image of circuit with esp32 controller leds and speakers">
-Check out the circuit at [Wokwi here](https://wokwi.com/projects/415272090827317249).
+[Simulation Link](https://wokwi.com/projects/415272090827317249)
 Pin connections:
 
 | Component  | ESP32 Pin |
