@@ -1,6 +1,5 @@
 # animal-detection-and-warning-system
-A system that detects stray animals in low-lighting environments using thermal sensors near highways/roads and sends an alert signal to an edge IOT device, equipped with LEDs and ultrasonic sound emitters, using MQTT Protocol to deter the animals from coming too close.
-
+This is a simple IoT-based system animal detection and warning system using an ESP32, a buzzer, an LED, and an OLED display. It leverages the MQTT protocol to communicate with a remote MQTT broker, receiving commands to alert drivers of animal detection events.
 # MQTT Communication protocol
 MQTT (Message Queuing Telemetry Transport) is a lightweight IoT communication protocol designed for low-powered devices and reliable communication over unreliable networks. It employs a "publish/subscribe" (pub/sub) messaging architecture, involving three main participants:
 <img src="https://camo.githubusercontent.com/0d7b840195f1be43abc6f28720224dde9b6bfa0a0a9ce73648d16a76b6154ce3/68747470733a2f2f6d7174742e6f72672f6173736574732f696d672f6d7174742d7075626c6973682d7375627363726962652e706e67" alt="MQTT demonstration image">
@@ -10,26 +9,88 @@ MQTT (Message Queuing Telemetry Transport) is a lightweight IoT communication pr
 
 For the application of this project, we are using a publicly available MQTT Broker, by Eclipse Mosquitto. The MQTT Broker is available at "test.mosquitto.org" and port 1883 allows for free communication. Ports can be configured for encryption and authentication as per the need, or a locally hosted MQTT Broker can also be used.
 
+# Features
+- Detects "on" and "off" commands from an MQTT broker.
+- Activates an LED and buzzer when an animal is detected.
+- Displays warning messages on an OLED display.
+- Communicates over Wi-Fi and subscribes to a specific MQTT topic.
+- Lightweight and real-time system using the MQTT protocol.
+
+# Components required
+- ESP32 microcontroller
+- Ultrasonic sound emitter / buzzer (for demonstration purposes)
+- LED with a 220Ω resistor
+- 0.96-inch OLED display (I2C)
+- Connecting wires
+
+# Software required
+- [Wokwi Simulator](https://wokwi.com/)
+- microPython libraries
+  - `umqtt.simple`
+  - `ssd1306`
+- Public MQTT Broker: `test.mosquitto.org`
+
+# Circuit Diagram
+<img src="https://github.com/quick-fox-03/animal-detection-and-warning-system/blob/main/soundplay%20circuit.jpg?raw=true" alt="image of circuit with esp32 controller leds and speakers">
+Pin connections:
+
+| Component  | ESP32 Pin |
+| ------------- | ------------- |
+| Sound Emitter  | GPIO 27  |
+| LED Bulb  | GPIO 23  |
+| OLED (SDA)  | GPIO 21  |
+| OLED (SCL)  | GPIO 22  |
+
+# System Workflow
+1. The ESP32 connects to a Wi-Fi network.
+2. It subscribes to the MQTT broker at test.mosquitto.org on port 1883 and listens for messages on the topic testicals/topic.
+3. When a message is received:
+   - If the message is "on":
+     - The LED and buzzer are turned ON.
+     - The OLED displays:
+     - ```
+       Animal Detected!
+       Drive Slow!!!!
+       ```
+   - If the message is "off":
+     - The LED and buzzer are turned OFF.
+     - The OLED screen is cleared.
+
+# Behaviour on MQTT messages
+| Message  | Behaviour |
+| ------------- | ------------- |
+| `"on"` | Activates the LED and buzzer. Displays warnings on the OLED.  |
+| `"off"`  | Deactivates the LED and buzzer. Clears the OLED screen. |
+
+# Setup instructions
+
 # IoT Alert System
 
-<img src="https://github.com/quick-fox-03/animal-detection-and-warning-system/blob/main/soundplay%20circuit.jpg?raw=true" alt="image of circuit with esp32 controller leds and speakers">
 
-The device consists of three components: 
+You may see the circuit over at [the Wokwi platform.](https://wokwi.com/projects/415272090827317249), which is a platform used for prototyping purposes.
+
+The device consists of four components:
+- ESP32 Microcontroller: serves as the main controlling unit of this device. It controls activation/deactivation for all actuators used and is also responsible for subscribing as a client to the MQTT Broker. 
 - a flashing LED that can be installed roadside for alerting both animals and drivers.
 - an ultrasonic sound emitter that emits noise for disturbing animals while drivers stay unaffected.
 - an OLED Display Board that can be used for signalling drivers about areas prone to animal presence, or a certain animal's detection.
 
-The device is simulated at [Wokwi](https://wokwi.com/) platform for prototyping purposes. You may see the circuit over at [the Wokwi platform.](https://wokwi.com/projects/415272090827317249)
+The device is simulated at [Wokwi](https://wokwi.com/) platform for prototyping purposes. 
 
 ## ESP32 Board
 The ESP32 Board is a popular WiFi and Bluetooth-enabled microcontroller, which serves as the main controlling unit of this device. It controls activation/deactivation for all actuators used and is also responsible for subscribing as a client to the MQTT Broker.
 
 ## LED Unit
-The LED buld is used as an actuator to provide flashing lights in order to confuse and deter animals while alerting drivers of potential animal in their vicinity.
+The LED bulb is used as an actuator to provide flashing lights in order to confuse and deter animals while alerting drivers of potential animal in their vicinity.
 
 ## Sound Emitter Unit
-The Sound Emitter Unit, is responsible for producing ultrasonic sounds at 30-40 kHz, well above the hearing range of human drivers but audible to dogs and cows, which ensures minimal disturbance to drivers.
+The Sound Emitter Unit, is responsible for producing ultrasonic sounds at 30-40 kHz, well above the hearing range of human drivers but audible to dogs and cows, which ensures minimal disturbance to drivers and alerts to animals.
 
 ## OLED Display Unit
-The OLED display unit is used as a visual actuator, which can be installed across the highways to display messages to drivers, ensuring there are more than one signals and reducing chances of missing alerts. The OLED display unit is interfaced with the microcontroller using "ssd1306" library which provides functions for controlling the display. 
+The OLED display unit is used as a visual actuator, which can be installed across the highways to display messages to drivers, ensuring there are more than one signals and reducing chances of missing alerts. The OLED display unit is interfaced with the microcontroller using "ssd1306" library which provides functions for controlling the display.
+
+# IoT Device circuit explanation
+The 
+
+The LED Bulb is connected to the ESP32 Board 
 
