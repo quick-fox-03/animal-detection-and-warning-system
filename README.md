@@ -63,7 +63,7 @@ Pin connections:
 2. Wi-Fi configuration: Replace `WIFI_SSID` and `WIFI_PASSWORD` in the code with your Wi-Fi credentials. Wokwi's platform simulates a Wi-Fi network, for using it add the following credentials:
    - `WIFI_SSID` : "Wokwi-GUEST"
    - `WIFI_PASSWORD`: ""
-3. MQTT Broker: Use a public MQTT broker [Mosquitto](test.mosquitto.org) or configure your private broker.
+3. MQTT Broker: Use a public MQTT broker [Mosquitto](https://test.mosquitto.org/) or configure your private broker.
 4. Upload Code: Use a suitable IDE (such as Arduino IDE) to upload the code to the ESP32.
 5. Testing: Publish `on` or `off` messages to the topic `"save-the-stray/INDCYC"` on the broker to test the system.
 
