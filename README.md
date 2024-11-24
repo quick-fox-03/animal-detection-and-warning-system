@@ -22,7 +22,7 @@ For the implementation, we are using a publicly available MQTT Broker, by "Eclip
 - microPython libraries
   - `umqtt.simple`
   - `ssd1306`
-- Public MQTT Broker: `test.mosquitto.org`
+- Public MQTT Broker: `test.mosquitto.org` is a publicly available Eclipse Mosquitto MQTT server/broker. For more information you may [click here](https://test.mosquitto.org/)  
 
 # Circuit Diagram
 <img src="https://github.com/quick-fox-03/animal-detection-and-warning-system/blob/main/soundplay%20circuit.jpg?raw=true" height="500px" width="700px" alt="image of circuit with esp32 controller leds and speakers">
